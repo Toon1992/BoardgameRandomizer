@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BoardGameRandomizer</string>
+    <string name="errorSearch">You have to give an username</string>
+    <string name="error">Foutje hier</string>
 </resources>

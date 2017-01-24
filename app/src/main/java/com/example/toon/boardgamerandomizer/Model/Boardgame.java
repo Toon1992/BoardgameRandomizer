@@ -5,40 +5,34 @@ package com.example.toon.boardgamerandomizer.Model;
  */
 
 public class Boardgame {
-    private int id;
+    private int gameId;
     private String name;
-    private String thumbnailUrl;
-    private double rating;
-    private int minPlayer;
-    private int maxPlayer;
+    private String thumbnail;
+    private double averageRating;
+    private int minPlayers;
+    private int maxPlayers;
     private int playingTime;
     private boolean owned;
 
-    public Boardgame(int id, String name, String thumbnailUrl, double rating, int minPlayer, int maxPlayer, int playingTime, boolean owned) {
-        this.id = id;
+    public Boardgame(int gameId, String name, String thumbnail, double averageRating, int minPlayers, int maxPlayers, int playingTime, boolean owned) {
+        this.gameId = gameId;
         this.name = name;
-        this.thumbnailUrl = thumbnailUrl;
-        this.rating = rating;
-        this.minPlayer = minPlayer;
-        this.maxPlayer = maxPlayer;
+        this.thumbnail = thumbnail;
+        this.averageRating = averageRating;
+        this.minPlayers = minPlayers;
+        this.maxPlayers = maxPlayers;
         this.playingTime = playingTime;
         this.owned = owned;
     }
 
-    public double getRating() {
-        return rating;
+
+
+    public int getGameId() {
+        return gameId;
     }
 
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
     }
 
     public String getName() {
@@ -49,28 +43,36 @@ public class Boardgame {
         this.name = name;
     }
 
-    public String getThumbnailUrl() {
-        return thumbnailUrl;
+    public String getThumbnail() {
+        return thumbnail;
     }
 
-    public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl = thumbnailUrl;
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
-    public int getMinPlayer() {
-        return minPlayer;
+    public double getAverageRating() {
+        return averageRating;
     }
 
-    public void setMinPlayer(int minPlayer) {
-        this.minPlayer = minPlayer;
+    public void setAverageRating(double averageRating) {
+        this.averageRating = averageRating;
     }
 
-    public int getMaxPlayer() {
-        return maxPlayer;
+    public int getMinPlayers() {
+        return minPlayers;
     }
 
-    public void setMaxPlayer(int maxPlayer) {
-        this.maxPlayer = maxPlayer;
+    public void setMinPlayers(int minPlayers) {
+        this.minPlayers = minPlayers;
+    }
+
+    public int getMaxPlayers() {
+        return maxPlayers;
+    }
+
+    public void setMaxPlayers(int maxPlayers) {
+        this.maxPlayers = maxPlayers;
     }
 
     public int getPlayingTime() {

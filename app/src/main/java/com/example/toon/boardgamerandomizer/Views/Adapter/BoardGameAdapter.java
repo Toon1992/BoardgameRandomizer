@@ -1,7 +1,6 @@
 package com.example.toon.boardgamerandomizer.Views.Adapter;
 
 import android.app.Activity;
-import android.media.ImageReader;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.toon.boardgamerandomizer.Model.Boardgame;
 import com.example.toon.boardgamerandomizer.R;
-import com.example.toon.boardgamerandomizer.Views.UIUtiles.PhotoReader;
+import com.example.toon.boardgamerandomizer.Views.UIUtiles.UIUtiles;
 
 import java.util.List;
 
@@ -62,12 +61,12 @@ public class BoardGameAdapter extends RecyclerView.Adapter<BoardGameAdapter.Boar
     public void onBindViewHolder(BoardGameViewHolder holder, int position) {
         final Boardgame game = boardgameList.get(position);
 
-        holder.tvPlayers.setText(String.format("%s - %s",game.getMinPlayer(), game.getMaxPlayer()));
-        holder.tvPlayTime.setText(game.getPlayingTime());
-        holder.tvRating.setText(String.format("%.2f",game.getRating()));
+        holder.tvPlayers.setText(String.format("%s - %s",game.getMinPlayers(), game.getMaxPlayers()));
+        holder.tvPlayTime.setText(String.format("%d",game.getPlayingTime()));
+        holder.tvRating.setText(String.format("%.2f",game.getAverageRating()));
         holder.tvTitle.setText(game.getName());
 
-        PhotoReader.setImage(ac.getBaseContext(),holder.ivThumbnail,game.getThumbnailUrl());
+        UIUtiles.setImage(ac.getBaseContext(),holder.ivThumbnail,UIUtiles.fixUrl(game.getThumbnail()));
 
     }
 
