@@ -8,19 +8,29 @@ public class Boardgame {
     private int id;
     private String name;
     private String thumbnailUrl;
+    private double rating;
     private int minPlayer;
     private int maxPlayer;
     private int playingTime;
     private boolean owned;
 
-    public Boardgame(int id, String name, String thumbnailUrl, int minPlayer, int maxPlayer, int playingTime, boolean owned) {
+    public Boardgame(int id, String name, String thumbnailUrl, double rating, int minPlayer, int maxPlayer, int playingTime, boolean owned) {
         this.id = id;
         this.name = name;
         this.thumbnailUrl = thumbnailUrl;
+        this.rating = rating;
         this.minPlayer = minPlayer;
         this.maxPlayer = maxPlayer;
         this.playingTime = playingTime;
         this.owned = owned;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 
     public int getId() {

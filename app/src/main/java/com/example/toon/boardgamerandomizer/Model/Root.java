@@ -10,4 +10,12 @@ public class Root {
     public Root(Boardgame[] boardgames) {
         this.boardgames = boardgames;
     }
+
+    public Boardgame[] getBoardgames() {
+        return boardgames;
+    }
+
+    public void setBoardgames(Boardgame[] boardgames) {
+        this.boardgames = boardgames;
+    }
 }
