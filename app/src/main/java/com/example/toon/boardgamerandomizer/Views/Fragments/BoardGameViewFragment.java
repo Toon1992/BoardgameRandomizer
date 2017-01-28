@@ -16,7 +16,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.example.toon.boardgamerandomizer.Model.Boardgame;
+import com.example.toon.boardgamerandomizer.Model.DaoSession;
 import com.example.toon.boardgamerandomizer.Model.Root;
+import com.example.toon.boardgamerandomizer.Persistency.Database.MyDB;
 import com.example.toon.boardgamerandomizer.Persistency.Requests.GsonRequest;
 import com.example.toon.boardgamerandomizer.R;
 import com.example.toon.boardgamerandomizer.Views.Adapter.BoardGameAdapter;
@@ -41,6 +43,7 @@ public class BoardGameViewFragment extends Fragment {
     private List<Boardgame> list;
     private final String URL = "https://bgg-json.azurewebsites.net/";
     private View rootView;
+    private MyDB db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,15 +55,26 @@ public class BoardGameViewFragment extends Fragment {
 
     private String makeUrl(){
         String user = getArguments().getString("user");
-        String url =  URL + "collection/" + user;
-        return url;
+        return URL + "collection/" + user;
     }
 
     private void initialize(){
         list = new ArrayList<>();
         queue = Volley.newRequestQueue(getContext());
-        responseObject(makeUrl());
 
+        db = new MyDB(getContext());
+        db.startDatabase();
+        getData();
+
+        if(list == null || list.isEmpty()){
+            responseObject(makeUrl());
+        } else {
+            initializeRecyclerView();
+        }
+    }
+
+    private void getData(){
+        list = db.getData();
     }
 
     private void initializeRecyclerView(){
@@ -75,7 +89,15 @@ public class BoardGameViewFragment extends Fragment {
         GsonRequest gsonRequest = new GsonRequest(url,Root.class,null, new Response.Listener() {
             @Override
             public void onResponse(Object response) {
-                Root root = (Root) response;
+                final Root root = (Root) response;
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        db.seeding(root.getBoardgames());
+                    }
+                }).start();
+
                 fillBoardGameListIn(root.getBoardgames());
                 initializeRecyclerView();
             }

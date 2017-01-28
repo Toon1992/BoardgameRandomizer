@@ -1,23 +1,33 @@
 package com.example.toon.boardgamerandomizer.Model;
 
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Keep;
+import org.greenrobot.greendao.annotation.Generated;
+
 /**
  * Created by Toon on 24/01/2017.
  */
 
+@Entity
 public class Boardgame {
-    private int gameId;
+
+    @Id
+    private long gameId;
+
     private String name;
-    private String thumbnail;
+    private String image;
     private double averageRating;
     private int minPlayers;
     private int maxPlayers;
     private int playingTime;
     private boolean owned;
 
-    public Boardgame(int gameId, String name, String thumbnail, double averageRating, int minPlayers, int maxPlayers, int playingTime, boolean owned) {
+    @Keep
+    public Boardgame(int gameId, String name, String image, double averageRating, int minPlayers, int maxPlayers, int playingTime, boolean owned) {
         this.gameId = gameId;
         this.name = name;
-        this.thumbnail = thumbnail;
+        this.image = image;
         this.averageRating = averageRating;
         this.minPlayers = minPlayers;
         this.maxPlayers = maxPlayers;
@@ -27,11 +37,31 @@ public class Boardgame {
 
 
 
-    public int getGameId() {
+    @Generated(hash = 2136645576)
+    public Boardgame() {
+    }
+
+
+
+    @Generated(hash = 1371529074)
+    public Boardgame(long gameId, String name, String image, double averageRating, int minPlayers, int maxPlayers, int playingTime, boolean owned) {
+        this.gameId = gameId;
+        this.name = name;
+        this.image = image;
+        this.averageRating = averageRating;
+        this.minPlayers = minPlayers;
+        this.maxPlayers = maxPlayers;
+        this.playingTime = playingTime;
+        this.owned = owned;
+    }
+
+
+
+    public long getGameId() {
         return gameId;
     }
 
-    public void setGameId(int gameId) {
+    public void setGameId(long gameId) {
         this.gameId = gameId;
     }
 
@@ -44,11 +74,11 @@ public class Boardgame {
     }
 
     public String getThumbnail() {
-        return thumbnail;
+        return image;
     }
 
     public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
+        this.image = thumbnail;
     }
 
     public double getAverageRating() {
@@ -89,5 +119,23 @@ public class Boardgame {
 
     public void setOwned(boolean owned) {
         this.owned = owned;
+    }
+
+
+
+    public String getImage() {
+        return this.image;
+    }
+
+
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+
+
+    public boolean getOwned() {
+        return this.owned;
     }
 }

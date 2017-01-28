@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tvUserName)
     EditText teUserName;
 
+
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

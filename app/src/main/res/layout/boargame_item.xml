@@ -4,17 +4,17 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ImageView
+        app:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/ivBoardGameThumbnail"
+        android:layout_weight="1"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp" />
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <ImageView
-            app:srcCompat="@mipmap/ic_launcher"
-            android:id="@+id/ivBoardGameThumbnail"
-            android:layout_weight="1"
-            android:layout_width="105dp"
-            android:layout_height="120dp" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -43,7 +43,7 @@
                     android:text="Rating:"
                     android:layout_height="wrap_content"
                     android:id="@+id/textView3"
-                    android:layout_weight="0.05"
+                    android:layout_weight="1"
                     android:textStyle="normal|bold"
                     android:textSize="18sp"
                     android:layout_width="50dp" />
@@ -55,21 +55,13 @@
                     android:id="@+id/tvRating"
                     android:layout_weight="1"
                     android:textStyle="normal|bold"
-                    android:layout_marginLeft="5dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="2dp">
+                    android:layout_marginLeft="5dp"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:text="Players:"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.05"
+                    android:layout_weight="1"
                     android:layout_width="50dp" />
 
                 <TextView
@@ -79,19 +71,11 @@
                     android:id="@+id/tvPlayers"
                     android:layout_weight="1"
                     android:layout_marginLeft="5dp" />
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="2dp">
 
                 <TextView
                     android:text="Playtime:"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.05"
+                    android:layout_weight="1"
                     android:layout_width="50dp" />
 
                 <TextView
@@ -101,6 +85,16 @@
                     android:id="@+id/tvPlaytime"
                     android:layout_weight="1"
                     android:layout_marginLeft="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp">
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

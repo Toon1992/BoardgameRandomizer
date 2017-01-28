@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso;
 
 public class UIUtiles {
     public static void setImage(Context context, ImageView imageView, String url){
-        Picasso.with(context).load(url).noFade().into(imageView);
+        Picasso.with(context).load(url).noFade().fit().centerCrop().into(imageView);
     }
 
     public static void makeToast(Context context, int stringID, int duration){
